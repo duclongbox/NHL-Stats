@@ -28,7 +28,7 @@ export function removeToken(){
 
 export async function authenticateUser(user, password) {
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
+  const res = await fetch(`http://localhost:5001/api/users/login`, {
     method: "POST",
     body: JSON.stringify({ userName: user, password: password }),
     headers: {

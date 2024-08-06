@@ -21,7 +21,7 @@ export default function Navigation(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link href="/" passHref legacyBehavior ><Nav.Link>Home</Nav.Link></Link>
-            {token && <Link href="/vehicles" passHref legacyBehavior><Nav.Link>Vehicles</Nav.Link></Link>}
+            {token && <Link href="/favourite" passHref legacyBehavior><Nav.Link>Favourite</Nav.Link></Link>}
           </Nav>
           <Nav className="ml-auto">
             {!token && <Link href="/login" passHref legacyBehavior><Nav.Link>Login</Nav.Link></Link>}
