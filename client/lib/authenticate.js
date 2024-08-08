@@ -30,7 +30,7 @@ export async function authenticateUser(user, password) {
 
   const res = await fetch(`http://localhost:5001/api/users/login`, {
     method: "POST",
-    body: JSON.stringify({ userName: user, password: password }),
+    body: JSON.stringify({ username: user, password: password }),
     headers: {
       "content-type": "application/json"
     }

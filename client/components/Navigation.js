@@ -27,6 +27,9 @@ export default function Navigation(props) {
             {!token && <Link href="/login" passHref legacyBehavior><Nav.Link>Login</Nav.Link></Link>}
             {token && <Nav.Link onClick={logout}>Logout</Nav.Link>}
           </Nav>
+          <Nav className="ml-auto">
+              <Link href="/register" passHref legacyBehavior ><Nav.Link>Register</Nav.Link></Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
