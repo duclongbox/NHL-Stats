@@ -27,6 +27,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/favourite": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/favourite.js"
+    ],
     "/login": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

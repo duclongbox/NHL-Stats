@@ -17,8 +17,8 @@ const Home = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log(data);
-        const teamsData = data.standings.entries.map(entry => entry.team);
+        // console.log(data);
+        const teamsData = data.standings.entries.map(entry => entry);
         setTeams(teamsData);
         
       } catch (error) {
@@ -38,10 +38,10 @@ const Home = () => {
   }
   return (
     <Container>
-      <h1 className="my-4">NHL Teams</h1>
+      <h1 className="my-4" style={{color: "white"}}>NHL Teams</h1>
       <Row>
         {teams.map((team) => (
-          <Col key={team.id} sm={12} md={6} lg={4} xl={3}>
+          <Col key={team.id} sm={12} md={6} lg={3} xl={4}>
             <TeamCard team={team} />
           </Col>
         ))}

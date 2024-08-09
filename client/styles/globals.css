@@ -1,0 +1,12 @@
+body {
+    background-image: url('../public/pics/svech.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.dark-modal .modal-content {
+    background-color: #333; /* dark grey */
+    color: #fff; /* white text */
+}

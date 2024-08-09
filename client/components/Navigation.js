@@ -14,21 +14,21 @@ export default function Navigation(props) {
   }
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" expand="lg">
       <Container>
-        <Link href="/" passHref legacyBehavior><Navbar.Brand >NHL Team {token && <>- Welcome {token.userName}</>}</Navbar.Brand></Link>
+        <Link href="/" passHref legacyBehavior><Navbar.Brand style={{color: "white"}}>NHL Team {token && <>- Welcome {token.userName}</>}</Navbar.Brand></Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link href="/" passHref legacyBehavior ><Nav.Link>Home</Nav.Link></Link>
-            {token && <Link href="/favourite" passHref legacyBehavior><Nav.Link>Favourite</Nav.Link></Link>}
+            <Link href="/" passHref legacyBehavior ><Nav.Link style={{color: "white"}}>Home</Nav.Link></Link>
+            {token && <Link href="/favourite" passHref legacyBehavior><Nav.Link style={{color: "white"}}>Favourite</Nav.Link></Link>}
           </Nav>
           <Nav className="ml-auto">
-            {!token && <Link href="/login" passHref legacyBehavior><Nav.Link>Login</Nav.Link></Link>}
-            {token && <Nav.Link onClick={logout}>Logout</Nav.Link>}
+            {!token && <Link href="/login" passHref legacyBehavior><Nav.Link style={{color: "white"}}>Login</Nav.Link></Link>}
+            {token && <Nav.Link onClick={logout} style={{color: "white"}}>Logout</Nav.Link>}
           </Nav>
           <Nav className="ml-auto">
-              <Link href="/register" passHref legacyBehavior ><Nav.Link>Register</Nav.Link></Link>
+              <Link href="/register" passHref legacyBehavior ><Nav.Link style={{color: "white"}}>Register</Nav.Link></Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

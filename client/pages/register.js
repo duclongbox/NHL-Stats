@@ -34,8 +34,8 @@ export default function Register(props) {
 
   return (
     <>
-      <Card bg="light">
-        <Card.Body>
+      <Card bg="dark">
+        <Card.Body style={{color: 'white'}}>
           <h2>Register</h2>
           Create your account information below:
         </Card.Body>
@@ -45,7 +45,7 @@ export default function Register(props) {
 
       <Form onSubmit={handleSubmit}>
         <Form.Group>
-          <Form.Label>User:</Form.Label>
+          <Form.Label style={{color: 'white'}}>User:</Form.Label>
           <Form.Control 
             type="text" 
             value={user} 
@@ -56,7 +56,7 @@ export default function Register(props) {
         </Form.Group>
         <br />
         <Form.Group>
-          <Form.Label>Password:</Form.Label>
+          <Form.Label style={{color: 'white'}}>Password:</Form.Label>
           <Form.Control 
             type="password" 
             value={password} 
@@ -74,7 +74,7 @@ export default function Register(props) {
         </>}
 
         <br />
-        <Button variant="primary" className="pull-right" type="submit">Register</Button>
+        <Button variant="dark" className="pull-right" type="submit">Register</Button>
       </Form>
     </>
   );
