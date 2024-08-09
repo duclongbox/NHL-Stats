@@ -8,7 +8,8 @@ const Home = () => {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(6);
   
   useEffect(() => {
     const fetchTeams = async () => {
@@ -37,16 +38,35 @@ const Home = () => {
       </Container>
     );
   }
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentTeams = teams.slice(indexOfFirstItem, indexOfFirstItem + itemsPerPage);
+  const totalPages = Math.ceil(teams.length / itemsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
   return (
-    <Container>
-      <h1 className="my-4" style={{color: "white"}}>NHL Teams</h1>
+      <Container>
+      <h1 className="my-4" style={{ color: "white" }}>NHL Teams</h1>
       <Row>
-        {teams.map((team) => (
+        {currentTeams.map((team) => (
           <Col key={team.id} sm={12} md={6} lg={3} xl={4}>
             <TeamCard team={team} />
           </Col>
         ))}
       </Row>
+      <Pagination>
+        {[...Array(totalPages).keys()].map(number => (
+          <Pagination.Item
+            key={number + 1}
+            active={number + 1 === currentPage}
+            onClick={() => handlePageChange(number + 1)}
+          >
+            {number + 1}
+          </Pagination.Item>
+        ))}
+      </Pagination>
     </Container>
   );
 };

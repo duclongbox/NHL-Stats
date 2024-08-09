@@ -2,8 +2,8 @@ import React from 'react'
 import { Card, Table, Button} from 'react-bootstrap'
 import { useEffect, useState, useContext } from 'react';
 import fetchPlayers from '../public/code/players.js';
-import ModalDetailed from './ModalDetailed.jsx';
-import { FavoriteTeamsContext } from './FavoriteTeamsProvider.jsx';
+import ModalDetailed from './ModalDetailed';
+import { FavoriteTeamsContext } from './FavoriteTeamsProvider';
 
 
 function TeamCard({team}) {

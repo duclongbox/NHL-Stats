@@ -3,7 +3,6 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-   // const fetch = (await import('node-fetch')).default; // node-fetch 
     const response = await fetch('https://nhl-api5.p.rapidapi.com/nhlstandings?year=2023&group=league', {
     //   params: { year: 2024, month: 5, day: 11 },
       method: 'GET',
