@@ -1,4 +1,4 @@
-import { Card, Form, Alert, Button } from "react-bootstrap";
+import { Card, Form, Alert, Button, Container } from "react-bootstrap";
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -52,7 +52,7 @@ export default function Register(props) {
             id="username" // Updated id from 'userName' to 'username' to match the field name
             name="username" // Updated name from 'userName' to 'username'
             onChange={e => setUser(e.target.value)} 
-          />
+            />
         </Form.Group>
         <br />
         <Form.Group>
@@ -63,7 +63,7 @@ export default function Register(props) {
             id="password" 
             name="password" 
             onChange={e => setPassword(e.target.value)} 
-          />
+            />
         </Form.Group>
 
         {warning && <>
@@ -76,6 +76,6 @@ export default function Register(props) {
         <br />
         <Button variant="dark" className="pull-right" type="submit">Register</Button>
       </Form>
-    </>
-  );
+  </>
+);
 }

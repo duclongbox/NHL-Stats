@@ -10,3 +10,11 @@ body {
     background-color: #333; /* dark grey */
     color: #fff; /* white text */
 }
+
+.register{
+    background-image: url('../public/pics/kuch.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

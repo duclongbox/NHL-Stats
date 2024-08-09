@@ -2,13 +2,14 @@
 
 import React, {useState, useEffect} from 'react';
 import TeamCard from '../components/TeamCard';
-import { Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Alert, Pagination} from 'react-bootstrap';
 
 const Home = () => {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  
   useEffect(() => {
     const fetchTeams = async () => {
       try {
