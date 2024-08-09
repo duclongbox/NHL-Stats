@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/teams'); // Update this to your API endpoint
+        const response = await fetch('https://nhl-stats-backend.vercel.app/api/teams'); // Update this to your API endpoint
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

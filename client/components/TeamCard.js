@@ -29,7 +29,7 @@ function TeamCard({team}) {
       addTeamToFavorites(team);
 
       try {
-        const response = await fetch(`http://localhost:5001/api/favouriteTeam/favourite`, {
+        const response = await fetch(`https://nhl-stats-backend.vercel.app/api/favouriteTeam/favourite`, {
           method: 'POST',
           body: JSON.stringify({id: currTeam.id, displayName: currTeam.displayName, logos: currTeam.logos, stats: team.stats}),
           headers: {

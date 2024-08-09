@@ -28,7 +28,7 @@ export function removeToken(){
 
 export async function authenticateUser(user, password) {
 
-  const res = await fetch(`http://localhost:5001/api/users/login`, {
+  const res = await fetch(`https://nhl-stats-backend.vercel.app/api/users/login`, {
     method: "POST",
     body: JSON.stringify({ username: user, password: password }),
     headers: {

@@ -12,7 +12,7 @@ export default function Register(props) {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:5001/api/users/register`, {
+      const res = await fetch(`https://nhl-stats-backend.vercel.app/api/users/register`, {
         method: "POST",
         body: JSON.stringify({ username: user, password: password }), // Corrected 'userName' to 'username'
         headers: {
