@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const users = require('./routes/users');
 const teams = require('./routes/teams');
+const favouriteteam = require('./routes/favouriteteam');
 const app = express();
 const cors = require('cors');
 
@@ -34,6 +35,7 @@ require('./config/passport')(passport);
 // Routes
 app.use('/api/users', users);
 app.use('/api/teams', teams);
+app.use('/api/favouriteteam', favouriteteam);
 
 const port = process.env.PORT || 5001;
 app.listen(port, () => console.log(`Server running on port ${port}`));

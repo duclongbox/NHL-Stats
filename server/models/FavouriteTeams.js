@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 
 
 const FavouriteTeamsSchema = new mongoose.Schema({
-  id: String,
+  id: {type: String,
+    required: true,
+    unique: true},
   displayName: String,
   logos: Array,
   stats: Array

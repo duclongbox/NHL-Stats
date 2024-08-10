@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const FavouriteTeams = require('../models/FavouriteTeams');
-router.post('/favourite', async (req, res) => {
+router.post('/', async (req, res) => {
 
     const { id, displayName, logos, stats } = req.body; 
     if (!id || !displayName || !logos || !stats) {
@@ -16,5 +16,15 @@ router.post('/favourite', async (req, res) => {
         res.status(500).json({error: 'Failed to add favourite team'});
     }
 });
+
+router.get('/', async (req, res) => {
+    try {
+                
+        const favouriteTeams = await FavouriteTeams.find();
+        res.json(favouriteTeams);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to get favourite teams' });
+    }
+}); 
 
 module.exports = router;
