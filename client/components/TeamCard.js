@@ -1,15 +1,19 @@
 import React from 'react'
 import { Card, Table, Button} from 'react-bootstrap'
 import { useEffect, useState, useContext } from 'react';
-import fetchPlayers from '../public/code/players.js';
 import ModalDetailed from './ModalDetailed';
-import { FavoriteTeamsContext } from './FavoriteTeamsProvider';
 
 
 function TeamCard({team}) {
-  const { favoriteTeams, addTeamToFavorites, removeTeamFromFavorites } = useContext(FavoriteTeamsContext);
+  const [favoriteTeams, setFavoriteTeams] = useState([]);
+  const [showModal, setModalShow] = useState(false);
 
-  const isFavorited = favoriteTeams.includes(team);
+  const handleOpenModal = () => setModalShow(true);
+  const handleCloseModal = () => setModalShow(false);
+  
+  const [players, setPlayers] = useState([]);
+
+  const [isFavorited, setIsFavorited] = useState(false);
 
   const currTeam = team.team
   const stat = team.stats;
@@ -20,16 +24,50 @@ function TeamCard({team}) {
   const PTS = stat ? stat[8].value : '';
   const OTL = stat ? stat[10].value : '';
   const OTW = stat ? stat[11].value : '';
+  
+  
+    useEffect(() => {
+      const fetchFavoriteTeams = async () => {
+        try {
+          const response = await fetch('https://nhl-stats-backend.vercel.app/api/favouriteteam', {
+            method: 'GET',
+          });
+          const data = await response.json();
+          setFavoriteTeams(data);
+          setIsFavorited(data.some(favTeam => favTeam.id === currTeam.id));
+        } catch (err) {
+          console.error('Error fetching favourite teams:', err);
+        }
+      };
+  
+      fetchFavoriteTeams();
+    }, []);
+  
+  
 
+  
 
+  console.log("list of favorite Teams: " + favoriteTeams);
   const toggleFavorite = async () => {
     if (isFavorited) {
-      removeTeamFromFavorites(team);
+      try {
+        const response = await fetch(`https://nhl-stats-backend.vercel.app/api/favouriteteam/${currTeam.id}`, {
+          method: 'DELETE',
+        });
+
+        if (!response.ok) {
+          throw new Error('HTTP error' + response.status);
+        }
+
+        console.log('Team removed from favourites');
+        setIsFavorited(false);
+      } catch (err) {
+        console.error('Error removing team from favourites:', err);
+      }
     } else {
-      addTeamToFavorites(team);
 
       try {
-        const response = await fetch(`https://nhl-stats-backend.vercel.app/api/favouriteTeam/favourite`, {
+        const response = await fetch(`https://nhl-stats-backend.vercel.app/api/favouriteteam/`, {
           method: 'POST',
           body: JSON.stringify({id: currTeam.id, displayName: currTeam.displayName, logos: currTeam.logos, stats: team.stats}),
           headers: {
@@ -42,6 +80,7 @@ function TeamCard({team}) {
         }
 
         console.log('Team added to favourites');
+        setIsFavorited(true);
       } catch (err) {
         console.error('Error adding team to favourites:', err);
       }
@@ -51,24 +90,6 @@ function TeamCard({team}) {
 
   console.log(favoriteTeams);
 
-  const [showModal, setModalShow] = useState(false);
-
-  const handleOpenModal = () => setModalShow(true);
-  const handleCloseModal = () => setModalShow(false);
-
-  const [players, setPlayers] = useState([]);
-
-
-  // useEffect(() => {
-  //   const fetchAndSetPlayers = async () => {
-  //     const playersData = await fetchPlayers(currTeam.id);
-  //     setPlayers(playersData);
-  //   }
-
-  //   fetchAndSetPlayers();
-  // }, [currTeam.id]);
-
-  // console.log(players);
 
   return (
     <Card style={{ width: '18rem', margin: '1rem', backgroundColor: '#181818'}}>

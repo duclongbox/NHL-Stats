@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const FavouriteTeams = require('../models/FavouriteTeams');
+
+
 router.post('/', async (req, res) => {
 
     const { id, displayName, logos, stats } = req.body; 

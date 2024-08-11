@@ -6,7 +6,7 @@ const FavouriteTeamsSchema = new mongoose.Schema({
     required: true,
     unique: true},
   displayName: String,
-  logos: Array,
+  logos: String,
   stats: Array
 })
 

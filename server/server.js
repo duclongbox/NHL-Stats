@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // CORS middleware
 app.use(cors({
-  origin: 'https://nhl-stats-frontend-phi.vercel.app', // Allow requests from this origin
+  origin: 'https://nhl-stats-frontend-phi.vercel.app/', // Allow requests from this origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // Allow cookies to be sent
 }));
