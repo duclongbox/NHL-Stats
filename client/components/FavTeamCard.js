@@ -66,7 +66,7 @@ function FavTeamCard({team}) {
     } else {
 
       try {
-        const response = await fetch(`https://nhl-stats-backend.vercel.app/api/favouriteteam/`, {
+        const response = await fetch(`https://nhl-stats-backend.vercel.app/api/favouriteteam`, {
           method: 'POST',
           body: JSON.stringify({id: currTeam.id, displayName: currTeam.displayName, logos: currTeam.logos, stats: team.stats}),
           headers: {
