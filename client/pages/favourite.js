@@ -101,7 +101,7 @@ const FavouritePage = ({}) => {
                     </Col>
                 ))}
             </Row>
-            <h1 style={{color: 'white', textAlign: 'center'}}>Your Favourite Teams</h1> <br /> <br />
+            <h1 style={{color: 'white', textAlign: 'center', textShadow: "-1px 0 black, 0 2px black, 1px 0 black, 0 -1px black"}}>Your Favourite Teams</h1> <br /> <br />
 
             <Row>
                 {favoriteTeams && favoriteTeams.map((team) => (

@@ -16,7 +16,7 @@ export default function Navigation(props) {
   return (
     <Navbar bg="dark" expand="lg">
       <Container>
-        <Link href="/" passHref legacyBehavior><Navbar.Brand style={{color: "white"}}>NHL Team {token && <>- Welcome {token.userName}</>}</Navbar.Brand></Link>
+        <Link href="/" passHref legacyBehavior><Navbar.Brand style={{color: "white"}}>NHL Team {token && <>- Welcome, {token.username}!</>}</Navbar.Brand></Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

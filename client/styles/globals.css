@@ -18,3 +18,13 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+.pagination-item {
+    --bs-pagination-active-border-color: red;
+    --bs-pagination-color: white;
+    --bs-pagination-active-color: red;
+    --bs-pagination-bg: #333;
+    --bs-pagination-active-bg: rgba(0, 0, 0, 0.5);
+    --bs-pagination-hover-color: black;
+    --bs-pagination-hover-bg: red;
+}

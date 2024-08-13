@@ -101,7 +101,7 @@ function TeamCard({team}) {
           <p>No logo :/</p>
         }
         </Button>
-        <Card.Title style={{textAlign: "center", color: 'white'}}>{currTeam.displayName}</Card.Title>
+        <Card.Title style={{textAlign: "center", color: 'white', paddingLeft: '15px', paddingRight: '5px'}}>{currTeam.displayName}</Card.Title>
       </div>
       <Card.Body>
         <Table striped border hover size="sm">
@@ -122,15 +122,15 @@ function TeamCard({team}) {
               <td style={{color: "red",textAlign: 'center'}}>{L}</td>
               <td style={{color: "green",textAlign: 'center'}}>{OTW}</td>
               <td style={{color: "red", borderRight: '1px solid #dee2e6',textAlign: 'center'}}>{OTL}</td>
-              <td style={{color: 'white'}}>{PTS}</td>
+              <td style={{color: 'white', paddingLeft: '10px'}}>{PTS}</td>
             </tr>
           </tbody>
         </Table>
-        <Button variant="warning" onClick={toggleFavorite} style={{ padding: '5px', fontSize: '12px', height: '25px'}}>
+        <Button variant="warning" onClick={toggleFavorite} style={{ padding: '5px', fontSize: '12px', height: '25px', paddintTop: '2px'}}>
           <p>{isFavorited ? '★' : '☆'}</p>
         </Button>
+        <ModalDetailed show={showModal} hide={handleCloseModal} teamID={currTeam.id} />
       </Card.Body>
-      <ModalDetailed show={showModal} hide={handleCloseModal} teamID={currTeam.id} />
     </Card>
   )
 }

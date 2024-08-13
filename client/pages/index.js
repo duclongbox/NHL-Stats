@@ -62,6 +62,7 @@ const Home = () => {
             key={number + 1}
             active={number + 1 === currentPage}
             onClick={() => handlePageChange(number + 1)}
+            className='pagination-item'
           >
             {number + 1}
           </Pagination.Item>
