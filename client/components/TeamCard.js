@@ -126,7 +126,7 @@ function TeamCard({team}) {
             </tr>
           </tbody>
         </Table>
-        <Button variant="warning" onClick={toggleFavorite} style={{ padding: '5px', fontSize: '12px', height: '25px', paddintTop: '2px'}}>
+        <Button variant="warning" onClick={toggleFavorite} style={{ padding: '5px', fontSize: '12px', height: '25px', paddingTop: '2px'}}>
           <p>{isFavorited ? '★' : '☆'}</p>
         </Button>
         <ModalDetailed show={showModal} hide={handleCloseModal} teamID={currTeam.id} />
