@@ -28,7 +28,7 @@ export default function Navigation(props) {
             {token && <Nav.Link onClick={logout} style={{color: "white"}}>Logout</Nav.Link>}
           </Nav>
           <Nav className="ml-auto">
-              <Link href="/register" passHref legacyBehavior ><Nav.Link style={{color: "white"}}>Register</Nav.Link></Link>
+            {!token && <Link href="/register" passHref legacyBehavior ><Nav.Link style={{color: "white"}}>Register</Nav.Link></Link>}
           </Nav>
         </Navbar.Collapse>
       </Container>
