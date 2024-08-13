@@ -91,7 +91,7 @@ const FavouritePage = ({}) => {
             <Row style={{color: 'white', textAlign: 'center'}}>
                 {events && events.map((event) => (
                     <Col sm={12} md={6} lg={4} xl={4}>
-                        <div style={{backgroundColor: 'rgba(0, 0, 0, 0.5)', border: '1px solid white', padding: '10px', marginBottom: '10px', borderRadius: '0.5 rem'}}>
+                        <div style={{backgroundColor: 'rgba(0, 0, 0, 0.5)', border: '1px solid white', padding: '10px', marginBottom: '10px', borderRadius: '0.5rem'}}>
                         <h1>
                                 <img src={event.competitions[0].competitors[0].team.logos ? event.competitions[0].competitors[0].team.logos[0].href : 'no logos'} alt="No Logo ;/" style={{ width: '50px', height: '50px' }}/> vs <img src={event.competitions[0].competitors[1].team.logos ? event.competitions[0].competitors[1].team.logos[0].href : 'no logos'} alt="No Logo ;/" style={{ width: '50px', height: '50px' }}/>
                         </h1>
