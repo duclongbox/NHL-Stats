@@ -51,12 +51,12 @@ const Home = () => {
       <h1 className="my-4" style={{ color: "white" }}>NHL Teams</h1>
       <Row>
         {currentTeams.map((team) => (
-          <Col key={team.id} sm={12} md={6} lg={3} xl={4}>
+          <Col key={team.team.id} sm={12} md={6} lg={3} xl={4}>
             <TeamCard team={team} />
           </Col>
         ))}
       </Row>
-      <Pagination>
+      <Pagination style={{justifyContent: 'center'}}>
         {[...Array(totalPages).keys()].map(number => (
           <Pagination.Item
             key={number + 1}
