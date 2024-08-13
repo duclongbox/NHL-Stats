@@ -16,9 +16,11 @@ import '../styles/globals.css';
 export default function App({ Component, pageProps }) {
   return (
       <>
+        <RouteGuard>
           <Layout>
             <Component {...pageProps} />
           </Layout>
+        </RouteGuard>
       </>
   );
 }
